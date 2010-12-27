@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html><head>
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Hudson CI Server on AppCloud</title>
+
+
+  <!--[if lte IE 8]><script src="/javascripts/html5.js"></script><![endif]-->
+  <script src="index_files/jquery-1.js" type="text/javascript"></script>
+<script src="index_files/jquery_002.js" type="text/javascript"></script>
+<script src="index_files/jquery.js" type="text/javascript"></script>
+<script src="index_files/tipsy.js" type="text/javascript"></script>
+<script src="index_files/application.js" type="text/javascript"></script>
+  <link href="index_files/application.css" media="screen" rel="stylesheet" type="text/css">
+
+  <!--[if lte IE 6]><link rel="stylesheet" href="/stylesheets/main.ie6.css" type="text/css" media="screen" charset="utf-8"><![endif]-->
+  <!--[if IE 7]><link rel="stylesheet" href="/stylesheets/main.ie7.css" type="text/css" media="screen" charset="utf-8"><![endif]-->
+
+  
+  <link href="http://railsdispatch.com/posts/feed.rss" rel="alternate" title="RSS" type="application/rss+xml">
+
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="QPXaE489YVeh93tPLga4ZaI37mH3mQRGi8V6I3czWDA=">
+
+<script src="index_files/ga.js" async="" type="text/javascript"></script></head><body id="posts_page">
+
+
+  <header>
+
+    <div id="title">
+      <a href="http://railsdispatch.com/">
+        <h1>Hudson on AppCloud</h1>
+        <h2>You're almost there...</h2>
+      </a>
+    </div>
+
+    <a id="enginyard_header" href="http://engineyard.com/">Presented by Engine Yard</a>
+
+    <nav>
+      <ul>
+        <li class="current">
+          <a href="http://railsdispatch.com/">Current</a>
+        </li>
+        <li class="false">
+          <a href="http://cloud.engineyard.com">Engine Yard AppCloud</a>
+        </li>
+        <li class="false">
+          <a href="http://hudson-ci.org">Hudson CI</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <!--nav>
+  
+  <ul id="tab_nav">
+   
+  <li class="active">
+    <a href="http://railsdispatch.com/posts/how-rails-3-enables-more-choices-part-1">
+    <span class="title">Rails 3 Choices (1)</span>
+    <span class="details">more than a month ago</span>
+</a></li>  <li class="inactive">
+    <a href="http://railsdispatch.com/posts/building-or-updating-a-rails-3-plugin">
+    <span class="title">Customizing Apps</span>
+    <span class="details">more than a month ago</span>
+</a></li>  <li class="inactive">
+    <a href="http://railsdispatch.com/posts/upgrading-a-rails-2-app-to-rails-3">
+    <span class="title">Upgrading to Rails 3</span>
+    <span class="details">more than a month ago</span>
+</a></li>  <li class="inactive">
+    <a href="http://railsdispatch.com/posts/rails-routing">
+    <span class="title">Routing with Rails 3</span>
+    <span class="details">more than a month ago</span>
+</a></li>
+<li class="inactive">
+  <a href="http://railsdispatch.com/posts" class="index_posts_menu_item">
+    <span class="title">View All Posts</span>
+    <span class="details">Posts from previous weeks</span>
+</a></li>
+</ul>
+
+  <ul id="sidebar_more">
+  <li><a class="ask_question" href="http://railsdispatch.com/community/questions/new">Ask a Question!</a></li>
+  <li><a class="follow_ey" href="http://twitter.com/engineyard">Engine Yard on Twitter</a></li>
+  <li><a class="follow_fb" href="http://www.facebook.com/engineyard">Engine Yard on Facebook</a></li>
+
+  <li class="newsletter">
+    <span class="mail_icon"></span>
+    
+    <script type="text/javascript"> 
+    var profiling = {
+      isEnabled: false,
+      numberOfProfilingFields: 3,
+      alwaysShowFields: [ 'mktDummyEntry']
+    };
+    </script>
+    <script type="text/javascript">function mktoGetForm() {return document.getElementById('mktForm_1002'); }</script>
+    <form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://na-f.marketo.com/index.php/leadCapture/save" id="mktForm_1002" name="mktForm_1002">
+
+      <span class="mktFormReq mktField">
+        <input class="mktFormText mktFormEmail mktFReq" name="Email" id="Email" maxlength="255" tabindex="2" type="text">
+        <label class="inline-hints" style="left: 10px ! important;">Subscribe to our Newsletter</label>
+        <div class="mktFormMsg"></div>
+      </span>
+
+      <input name="_marketo_comments" class="hidden" type="text">
+
+      <input name="lpId" value="1009" type="hidden">
+      <input name="subId" value="121" type="hidden">
+      <input name="kw" value="" type="hidden">
+      <input name="cr" value="" type="hidden">
+      <input name="searchstr" value="" type="hidden">
+      <input name="lpurl" value="http://pages.engineyard.com/Blank-Newsletter.html?cr={creative}&amp;kw={keyword}" type="hidden">
+      <input name="formid" value="1002" type="hidden">
+      <input name="returnURL" value="http://www.engineyard.com/newsletter/subscribe-thanks" type="hidden">
+      <input name="retURL" value="http://www.engineyard.com/newsletter/subscribe-thanks" type="hidden">
+      <input name="_mkt_disp" value="return" type="hidden">
+      <input name="_mkt_trk" value="id:422-MTH-535&amp;token:_mch-railsdispatch.com-1290489521533-39837" type="hidden">
+    </form>
+    
+    <script type="text/javascript" src="index_files/mktFormSupport.js"></script>
+    <script type="text/javascript">
+    function formSubmit(elt) {
+      return Mkto.formSubmit(elt);
+    }
+    function formReset(elt) {
+      return Mkto.formReset(elt);
+    }
+    </script>
+    
+  </li>
+</ul>
+
+<a class="banner" href="http://www.rubysoc.org/">
+  <img src="index_files/banner_soc.png" alt="Ruby Summer of Code">
+</a>
+
+<a class="banner" href="http://pages.engineyard.com/Rubinius-62010.html">
+  <img src="index_files/rubinius-webinar-ad-232x250.png" alt="Rubinius webinar with Evan Phoenix">
+</a>
+
+
+
+
+</nav-->
+    <article>
+<div id="page_additional" class="with_contributor">
+  
+<a original-title="Yehuda Katz" class="person_thumb small" href="http://railsdispatch.com/contributors/6" rel="tipsy">    <img alt="Yehuda Katz" src="/images/hudson_butler.png">
+    <span class="person_mask"></span>
+</a>  
+  <h3 class="post_title">Final steps...</h3>
+
+  <div class="contributor_details">
+    
+    <ul class="contributor_social_links">
+      <li class="contributor_social"><a original-title="Follow Yehuda on Twitter" href="http://twitter.com/wycats" class="twitter_social" rel="tipsy">Yehuda</a></li>
+<li class="contributor_social"><a original-title="Follow Yehuda on Github" href="http://github.com/wycats" class="github_social" rel="tipsy">Yehuda</a></li>
+<li class="contributor_social"><a original-title="Ask Yehuda a question" href="http://railsdispatch.com/community/questions/new?question[contributor_id]=6" class="ask_contributor_question" rel="tipsy">Yehuda</a></li>
+<li class="contributor_social"><a original-title="Visit Yehuda’s Site" href="http://www.yehudakatz.com/" class="website" rel="tipsy">Yehuda</a></li>
+
+    </ul>  
+  </div>
+  
+</div>
+
+<!-- 
+<ul class="element_list">
+  <li class="title"><span>In this post</span></li>
+    <li></li>
+</ul>
+ -->
+
+<div class="post_content">
+  <p>Ok, you have booted an Engine Yard AppCloud instance. You are one step away from
+    hosting your own Hudson CI.</p>
+  <p>On your local machine:</p>
+<div caption="Set up Hudson CI server" class="code_block"><h5>Set up Hudson CI server</h5><div class="CodeRay">
+  <div class="code">
+    <pre>gem install <span class="co">engineyard-hudson</span>
+<span class="co">ey-hudson</span> install_server</pre>
+  </div>
+</div>
+</div><h2>Options</h2>
+<p>The <code>install_server</code> task assumes that this environment is called <code>hudson</code>, <code>hudson_server</code>, <code>hudson_production</code>, <code>hudson_server_production</code> and that there is only one such environment.</p>
+<p>If it cannot find an environment with these names, or there are multiple environments with these names (you might be using the new <a href="http://docs.engineyard.com/beta/collaboration">collaborator</a> beta feature), then you will asked to provide more options.</p>
+<div caption="Environment flags" class="code_block"><h5>Environment flags</h5><div class="CodeRay">
+  <div class="code">
+    <pre><span class="co">ey-hudson</span> install_server <span class="co">--environment</span> hudson_env <span class="co">--account</span> my_hudson_account</pre>
+  </div>
+</div>
+<h2>Finished?</h2>
+<p>When this command is complete, <a href="/">refresh this page</a> to see Hudson CI hosted on AppCloud!</p>
+
+</div>
+
+
+</article>  
+</section>
+
+  <footer>
+    <div id="footer_contents">
+      <div id="engineyard_photo">
+        <a href="http://railsdispatch.com/about/about_engine_yard"><img src="index_files/engineyard.png" alt="Engineyard" height="128" width="241"></a>
+        <h6>Our office</h6>
+      </div>
+
+      <div id="engineyard">
+        <h3>Open Source Philanthropy</h3>
+
+<p>Open source is a key part of the <a href="http://www.engineyard.com/">Engine Yard</a>
+ strategy, and we give back as much as we can. Engine Yard funds full time open source contributors, on projects like Ruby, 
+Rails, JRuby, Rubinius and fog.</p>
+
+<p>©2010 Engine Yard Inc.</p>
+      </div>
+
+      <div id="copyrights">
+        <h5>Engine Yard</h5>
+        <p>Design by <a href="http://newgoldleaf.com/">New Gold Leaf</a>, originally for Rails Dispatch <a href="http://railsdispatch.com/">Rails Dispatch</a> by <a href="http://engineyard.com">Engine Yard</a>.</p>
+        
+      </div>
+    </div>
+  </footer>
+
+  <div id="tracking_code">
+
+  </div>
+
+</body></html>
