@@ -32,10 +32,14 @@
 
       %article
         #page_additional.with_contributor
-          %a.person_thumb.small{:href => "http://railsdispatch.com/contributors/6", "original-title" => "Article", :rel => "tipsy"}
+          %a.person_thumb.small{:href => "/", "original-title" => "Article", :rel => "tipsy"}
             %img{:alt => "Icon", :src => "/images/hudson_butler.png"}/
             %span.person_mask
-          %h3.post_title Final steps...
+          %h3.post_title 
+            - if content_for?(:section_title)
+              = yield(:section_title)
+            - else
+              &nbsp;
           .contributor_details
             %ul.contributor_social_links
               %li.contributor_social
