@@ -1,0 +1,2 @@
+module ParticipationHelper
+end

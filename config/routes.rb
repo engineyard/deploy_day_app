@@ -1,4 +1,8 @@
 DemoDayApp::Application.routes.draw do
+  root :to => "participation#index"
+  get "participation/index"
+  get "participation/update"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
