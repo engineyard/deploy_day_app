@@ -1,7 +1,8 @@
 DemoDayApp::Application.routes.draw do
-  root :to => "participation#index"
-  get "participation/index"
-  post "participation/update"
+  resources :participations
+
+  root :to => "participations#index"
+
   get "participation/done"
 
   # The priority is based upon order of creation:

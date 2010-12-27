@@ -1,0 +1,10 @@
+- content_for :section_title do
+  Deployed!
+
+- semantic_form_for(Participation.new) do |f|
+  - f.inputs :name => 'Information' do
+    = f.input :name, :label => 'Your names'
+  
+  - f.buttons do
+    = f.commit_button 'Submit'
+

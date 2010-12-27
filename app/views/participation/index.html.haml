@@ -1,7 +1,0 @@
-- content_for :section_title do
-  Deployed!
-
-- form_tag(:action => "update") do
-  %input{:type => "hidden", :name => "test", :value => "1"}
-  = text_field_tag "deployment", "local"
-  = submit_tag "Save changes", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Please wait..."

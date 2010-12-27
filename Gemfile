@@ -34,3 +34,5 @@ gem "cucumber-rails", :group => :test
 gem "capybara", :group => :test
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
+
+gem "formtastic"
