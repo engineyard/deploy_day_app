@@ -3,12 +3,13 @@ class ParticipationsController < ApplicationController
     Participation.new.deployed!(user_id, ENV)
   end
 
-  def update
+  def create
     Participation.new(params[:participation]).announce!(user_id, ENV)
     redirect_to :action => "done"
   end
   
   def done
+    
   end
 
   protected

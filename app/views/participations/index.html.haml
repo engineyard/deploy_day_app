@@ -1,10 +1,15 @@
 - content_for :section_title do
-  Deployed!
+  Congratulations, it's deployed!
+
+%h1 Record your thoughts
 
 - semantic_form_for(Participation.new) do |f|
   - f.inputs :name => 'Information' do
     = f.input :name, :label => 'Your names'
   
+  - f.inputs :name => 'Feedback' do
+    = f.input :feedback
+
   - f.buttons do
     = f.commit_button 'Submit'
 
