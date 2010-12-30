@@ -6,6 +6,8 @@ class ParticipationsController < ApplicationController
       self.user_id = @participation.id
     rescue Errno::ECONNREFUSED
       flash.now[:notice] = "Central server is down. Please tell Dr Nic. Do not submit your form."
+    rescue Errno::EAFNOSUPPORT
+      flash.now[:notice] = "Cannot connect to central server #{@participation.class.site}"
     rescue Exception => e
       flash.now[:notice] = "#{e.message} (#{e.class})"
     end
@@ -26,6 +28,8 @@ class ParticipationsController < ApplicationController
         end
       rescue Errno::ECONNREFUSED
         flash.now[:notice] = "Central server is down. Please tell Dr Nic. Do not submit your form."
+      rescue Errno::EAFNOSUPPORT
+        flash.now[:notice] = "Cannot connect to central server #{@participation.class.site}"
       rescue Exception => e
         flash.now[:notice] = "#{e.message} (#{e.class})"
       end
