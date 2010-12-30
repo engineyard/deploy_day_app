@@ -22,11 +22,16 @@ class Participation
     false
   end
   
-  def deployed!(user_id, env)
-    # TODO - announce "deployed" to central server
+  def deployed!(host)
+    participation = ParticipationResource.new(:host => host)
+    participation.save!
+    participation
   end
   
-  def announce!(user_id, env)
-    ParticipationResource.new(:name => name, :feedback => feedback).save!
+  def announce!(user_id)
+    participation = ParticipationResource.find(user_id)
+    participation.name = name
+    participation.feedback = feedback
+    participation.save!
   end
 end

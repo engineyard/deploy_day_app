@@ -1,16 +1,21 @@
 class ParticipationsController < ApplicationController
   def index
-    Participation.new.deployed!(user_id, ENV)
+    participation = Participation.new.deployed!(request.host)
+    self.user_id = participation.id
   end
 
   def create
-    participation = Participation.new(params[:participation])
-    if participation.valid?
-      participation.announce!(user_id, ENV)
-      redirect_to :action => "done"
+    unless user_id
+      redirect_to :action => "index"
     else
-      flash[:notice] = "Please fill in all fields"
-      render :action => "index"
+      participation = Participation.new(params[:participation])
+      if participation.valid?
+        participation.announce!(user_id)
+        redirect_to :action => "done"
+      else
+        flash[:notice] = "Please fill in all fields"
+        render :action => "index"
+      end
     end
   end
   
@@ -19,6 +24,9 @@ class ParticipationsController < ApplicationController
 
   protected
   def user_id
-    session[:user_id] ||= Time.now.to_s
+    session[:user_id]
+  end
+  def user_id= id
+    session[:user_id] = id
   end
 end
