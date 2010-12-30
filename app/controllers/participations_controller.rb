@@ -4,10 +4,8 @@ class ParticipationsController < ApplicationController
       @participation = Participation.new
       @participation.deployed!(request.host)
       self.user_id = @participation.id
-    rescue Errno::ECONNREFUSED
-      flash.now[:notice] = "Central server is down. Please tell Dr Nic. Do not submit your form."
-    rescue Errno::EAFNOSUPPORT
-      flash.now[:notice] = "Cannot connect to central server #{ParticipationResource.site}"
+    rescue Errno::ECONNREFUSED, Errno::EAFNOSUPPORT
+      flash.now[:notice] = "Cannot connect to central server #{ParticipationResource.site}. Please tell Dr Nic. Do not submit your form."
     rescue Exception => e
       flash.now[:notice] = "#{e.message} (#{e.class})"
     end
@@ -26,10 +24,8 @@ class ParticipationsController < ApplicationController
           flash[:notice] = "Please fill in all fields"
           render :action => "index"
         end
-      rescue Errno::ECONNREFUSED
-        flash.now[:notice] = "Central server is down. Please tell Dr Nic. Do not submit your form."
-      rescue Errno::EAFNOSUPPORT
-        flash.now[:notice] = "Cannot connect to central server #{ParticipationResource.site}"
+      rescue Errno::ECONNREFUSED, Errno::EAFNOSUPPORT
+        flash.now[:notice] = "Cannot connect to central server #{ParticipationResource.site}. Please tell Dr Nic. Do not submit your form."
       rescue Exception => e
         flash.now[:notice] = "#{e.message} (#{e.class})"
       end
