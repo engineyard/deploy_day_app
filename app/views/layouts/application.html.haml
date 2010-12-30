@@ -55,6 +55,10 @@
           <li class="title"><span>In this post</span></li>
           <li></li>
           </ul>
+        - if flash[:notice]
+          #messages
+            .alert.notice
+              = flash[:notice]
         .post_content
           = yield
       

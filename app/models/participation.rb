@@ -1,3 +1,7 @@
+class ParticipationResource < ActiveResource::Base
+  self.site = Rails.configuration.demo_day_server
+  self.element_name = "participation"
+end
 class Participation
   include ActiveModel::Validations
   include ActiveModel::Conversion
@@ -5,6 +9,9 @@ class Participation
   
   attr_accessor :name
   attr_accessor :feedback
+  
+  validates_presence_of :name, :feedback
+  
   def initialize(attributes = {})
     attributes.each do |name, value|
       send("#{name}=", value)
@@ -20,6 +27,6 @@ class Participation
   end
   
   def announce!(user_id, env)
-    # TODO - announce "submitted" to central server
+    ParticipationResource.new(:name => name, :feedback => feedback).save!
   end
 end

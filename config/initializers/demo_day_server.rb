@@ -1,0 +1,1 @@
+Rails.configuration.demo_day_server = YAML.load_file(File.join(Rails.root, "config", "demo_day_server.yml"))[:server_url]

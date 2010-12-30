@@ -3,7 +3,7 @@
 
 %h1 Record your thoughts
 
-- semantic_form_for(Participation.new) do |f|
+- semantic_form_for(Participation.new(:name => "", :feedback => "")) do |f|
   - f.inputs :name => 'Information' do
     = f.input :name, :label => 'Your names'
   

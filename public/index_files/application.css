@@ -59,7 +59,7 @@ p a:link, p a:hover, p a:visited, p a:active, .tweet a {border-bottom:1px solid 
 
 html {background:url('/images/main_background.jpg') -20% -23px repeat-x;}
 
-div.alert {height:32px; background:#168496; background:rgba(0, 0, 0, .12); position:absolute; width:100%; z-index:9999;}
+div.alert {height:32px; background:#168496; background:rgba(0, 0, 0, .12); position:absolute; width:90%; z-index:9999;}
 div.alert span {width:937px; padding-right:22px; margin:0 auto; display:block; height:32px; position:relative; line-height:33px; text-align:right; color:#91CED5; text-shadow:0 -1px 0 #003B45;}
 div.alert span a {color:#D1F3F6; text-decoration:none; border-bottom:1px solid #34A1B6; font-weight:bold;}
 div.alert span a:hover {color:white;}
