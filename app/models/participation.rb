@@ -25,7 +25,7 @@ class Participation
   def deployed!(host)
     participation = ParticipationResource.new(:host => host)
     participation.save!
-    participation
+    participation.id
   end
   
   def announce!(user_id)

@@ -2,8 +2,7 @@ class ParticipationsController < ApplicationController
   def index
     begin
       @participation = Participation.new
-      @participation.deployed!(request.host)
-      self.user_id = @participation.id
+      self.user_id = @participation.deployed!(request.host)
     rescue Errno::ECONNREFUSED, Errno::EAFNOSUPPORT
       flash.now[:notice] = "Cannot connect to central server #{ParticipationResource.site}. Please tell Dr Nic. Do not submit your form."
     rescue Exception => e
@@ -26,10 +25,11 @@ class ParticipationsController < ApplicationController
         end
       rescue Errno::ECONNREFUSED, Errno::EAFNOSUPPORT
         flash.now[:notice] = "Cannot connect to central server #{ParticipationResource.site}. Please tell Dr Nic. Do not submit your form."
+        render :action => "index"
       rescue Exception => e
         flash.now[:notice] = "#{e.message} (#{e.class})"
+        render :action => "index"
       end
-      render :action => "index"
     end
   end
   
