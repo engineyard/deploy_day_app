@@ -1,5 +1,5 @@
 class ParticipationResource < ActiveResource::Base
-  self.site = Rails.configuration.demo_day_server
+  self.site = Rails.configuration.deploy_day_server
   self.element_name = "participation"
 end
 class Participation

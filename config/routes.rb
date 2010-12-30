@@ -1,4 +1,4 @@
-DemoDayApp::Application.routes.draw do
+DeployDayApp::Application.routes.draw do
   resources :participations do
     collection do
       get 'done'
