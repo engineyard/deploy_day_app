@@ -23,15 +23,21 @@ class Participation
   end
   
   def deployed!(host)
-    participation = ParticipationResource.new(:host => host)
-    participation.save!
-    participation
+    begin
+      participation = ParticipationResource.new(:host => host)
+      participation.save!
+      participation
+    rescue Exception => e
+    end
   end
   
   def announce!(user_id)
-    participation = ParticipationResource.find(user_id)
-    participation.name = name
-    participation.feedback = feedback
-    participation.save!
+    begin
+      participation = ParticipationResource.find(user_id)
+      participation.name = name
+      participation.feedback = feedback
+      participation.save!
+    rescue Exception => e
+    end
   end
 end
