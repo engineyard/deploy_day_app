@@ -10,6 +10,7 @@ class ParticipationsController < ApplicationController
       flash.now[:notice] = "Cannot connect to central server #{ParticipationResource.site}. Please tell Dr Nic. Do not submit your form."
     rescue Exception => e
       flash.now[:notice] = "#{e.message} (#{e.class})"
+      logger.info e.backtrace.class
     end
   end
 
@@ -35,6 +36,7 @@ class ParticipationsController < ApplicationController
       rescue Exception => e
         flash.now[:notice] = "#{e.message} (#{e.class})"
         render :action => "index"
+        logger.info e.backtrace.class
       end
     end
   end
