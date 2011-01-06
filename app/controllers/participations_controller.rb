@@ -3,6 +3,9 @@ class ParticipationsController < ApplicationController
     begin
       @participation = Participation.new
       self.user_id = @participation.deployed!(request.host)
+    rescue ActiveResource::UnauthorizedAccess
+      flash.now[:notice] = "Argh. The server password has changed. Please tell Dr Nic. Do not submit your form."
+      render :action => "index"
     rescue Errno::ECONNREFUSED, Errno::EAFNOSUPPORT
       flash.now[:notice] = "Cannot connect to central server #{ParticipationResource.site}. Please tell Dr Nic. Do not submit your form."
     rescue Exception => e
@@ -23,6 +26,9 @@ class ParticipationsController < ApplicationController
           flash[:notice] = "Please fill in all fields"
           render :action => "index"
         end
+      rescue ActiveResource::UnauthorizedAccess
+        flash.now[:notice] = "Argh. The server password has changed. Please tell Dr Nic. Do not submit your form."
+        render :action => "index"
       rescue Errno::ECONNREFUSED, Errno::EAFNOSUPPORT
         flash.now[:notice] = "Cannot connect to central server #{ParticipationResource.site}. Please tell Dr Nic. Do not submit your form."
         render :action => "index"
