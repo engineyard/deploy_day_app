@@ -35,4 +35,12 @@ class Participation
     participation.feedback = feedback
     participation.save!
   end
+  
+  def self.hosted_at(host)
+    if host =~ /heroku/
+      "Heroku"
+    elsif host =~ /amazonaws/
+      "AppCloud"
+    end
+  end
 end

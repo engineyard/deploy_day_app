@@ -1,2 +1,13 @@
 - content_for :section_title do
   Done!
+
+%p
+  - if hosted_at = Participation.hosted_at(request.host)
+    You successfully finished the task of deploying to
+    %strong= hosted_at
+    and submitting your feedback.
+  - else
+    You successfully finished the task of running the application
+    %strong locally
+    and submitting your feedback.
+

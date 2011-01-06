@@ -3,6 +3,17 @@
 
 %h1 Record your thoughts
 
+%p
+  - if hosted_at = Participation.hosted_at(request.host)
+    You successfully deployed to
+    %strong= hosted_at
+    and you now need to register your team and feedback.
+  - else
+    You are successfully running your application
+    %strong locally
+    and you now need to register your team and feedback.
+
+
 - semantic_form_for(@participation) do |f|
   - f.inputs :name => 'Information' do
     = f.input :team_name, :label => 'Horse name', :hint => 'Team name'
