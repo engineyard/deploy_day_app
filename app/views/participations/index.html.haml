@@ -5,10 +5,9 @@
 
 - semantic_form_for(@participation) do |f|
   - f.inputs :name => 'Information' do
-    = f.input :name, :label => 'Your names'
-  
-  - f.inputs :name => 'Feedback' do
-    = f.input :feedback
+    = f.input :team_name, :label => 'Horse name', :hint => 'Team name'
+    = f.input :name, :label => 'Your name', :hint => 'Person doing the process'
+    = f.input :feedback, :as => :text, :label => 'Thoughts'
 
   - f.buttons do
     = f.commit_button 'Submit'

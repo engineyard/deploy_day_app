@@ -9,7 +9,9 @@
     %script{:src => "/index_files/jquery.js", :type => "text/javascript"}
     %script{:src => "/index_files/tipsy.js", :type => "text/javascript"}
     %script{:src => "/index_files/application.js", :type => "text/javascript"}
-    %link{:href => "/index_files/application.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "/index_files/application.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "/stylesheets/formtastic.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "/stylesheets/formtastic_changes.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
     /[if lte IE 6] <link rel="stylesheet" href="/stylesheets/main.ie6.css" type="text/css" media="screen" charset="utf-8">
     /[if IE 7] <link rel="stylesheet" href="/stylesheets/main.ie7.css" type="text/css" media="screen" charset="utf-8">
     %script{:async => "", :src => "/index_files/ga.js", :type => "text/javascript"}
@@ -32,7 +34,7 @@
 
       %article
         #page_additional.with_contributor
-          %a.person_thumb.small{:href => "/", "original-title" => "Article", :rel => "tipsy"}
+          %a.person_thumb.small{:href => "/", :rel => "tipsy"}
             %img{:alt => "Icon", :src => "/images/hudson_butler.png"}/
             %span.person_mask
           %h3.post_title 
@@ -40,21 +42,6 @@
               = yield(:section_title)
             - else
               &nbsp;
-          .contributor_details
-            %ul.contributor_social_links
-              %li.contributor_social
-                %a.twitter_social{:href => "http://twitter.com/wycats", "original-title" => "Follow Yehuda on Twitter", :rel => "tipsy"} Yehuda
-              %li.contributor_social
-                %a.github_social{:href => "http://github.com/wycats", "original-title" => "Follow Yehuda on Github", :rel => "tipsy"} Yehuda
-              %li.contributor_social
-                %a.ask_contributor_question{:href => "http://railsdispatch.com/community/questions/new?question[contributor_id]=6", "original-title" => "Ask Yehuda a question", :rel => "tipsy"} Yehuda
-              %li.contributor_social
-                %a.website{:href => "http://www.yehudakatz.com/", "original-title" => "Visit Yehuda\342\200\231s Site", :rel => "tipsy"} Yehuda
-        /
-          <ul class="element_list">
-          <li class="title"><span>In this post</span></li>
-          <li></li>
-          </ul>
         - if flash[:notice]
           #messages
             .alert.notice

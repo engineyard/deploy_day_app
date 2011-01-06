@@ -7,10 +7,10 @@ class Participation
   include ActiveModel::Conversion
   extend ActiveModel::Naming
   
-  attr_accessor :name
+  attr_accessor :name, :team_name
   attr_accessor :feedback
   
-  validates_presence_of :name, :feedback
+  validates_presence_of :team_name, :name, :feedback
   
   def initialize(attributes = {})
     attributes.each do |name, value|
@@ -31,6 +31,7 @@ class Participation
   def announce!(user_id)
     participation = ParticipationResource.find(user_id)
     participation.name = name
+    participation.team_name = team_name
     participation.feedback = feedback
     participation.save!
   end

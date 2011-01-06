@@ -1,0 +1,12 @@
+form.formtastic fieldset ol li p.inline-hints { 
+  font-style: italic;
+  font-size: 11px;
+}
+
+form.formtastic li.error input, form.formtastic li.error textarea {
+  border: 2px solid red;
+}
+
+form.formtastic li.error p.inline-errors {
+  display: none;
+}
