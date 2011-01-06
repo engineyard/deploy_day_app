@@ -1,6 +1,14 @@
 - content_for :section_title do
   Done!
 
+%h1 How are you doing?
+
+%p
+  Your progress is tracked on
+  %a{:href => "http://engineyard:deployday@demoday.engineyard.com"} http://demoday.engineyard.com
+
+%h1 Finished yet?
+
 %p
   - if hosted_at = Participation.hosted_at(request.host)
     You successfully finished the task of deploying to
@@ -11,3 +19,26 @@
     %strong locally
     and submitting your feedback.
 
+%p
+  %strong Are you finished yet?
+
+%ol
+  %li Have you run the application locally?
+  %li Have you deployed the application on AppCloud?
+  %li Have you deployed the application on Heroku?
+  %li 
+    Have you deployed to AppCloud using the web UI 
+    %strong and
+    the
+    %code ey deploy
+    command line?
+  %li 
+    Has your
+    %strong partner
+    finished all the tasks too?
+
+%p
+  If
+  %strong "yes"
+  then you are finished!! Celebrate!
+  
