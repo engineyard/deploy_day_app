@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'rack', '1.2.2'
 gem 'rails', '3.0.3'
 
 # Bundle edge Rails instead:
